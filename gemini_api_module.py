@@ -1,8 +1,8 @@
 import requests
 
 # Konfigurasi Gemini API
-gemini_api_key = 'AIzaSyCE1AGLlCHoC3T4zC69osT4-xGZng8XAEM'
-gemini_url = 'https://generativelanguage.googleapis.com/v1/models/gemini-pro:generateContent'
+gemini_api_key = 'INPUT_GEMINI_API_ANDA'
+gemini_url = 'INPUT_URL_GEMINI_ANDA'
 
 def fetch_mitigation_from_gemini(rule_name):
     headers = {'Content-Type': 'application/json'}
