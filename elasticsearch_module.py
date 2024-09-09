@@ -3,9 +3,9 @@ from elasticsearch import Elasticsearch
 # Konfigurasi Elasticsearch
 es = Elasticsearch(
     ['https://localhost:9200'],
-    basic_auth=('elastic', 'tm*8I=B32rkMM7qiSTFN'),
+    basic_auth=('username', 'password'), #Ganti dengan credential yang valid
     verify_certs=True,
-    ca_certs='/root/elkalert/certs/http_ca.crt'
+    ca_certs='/root/http_ca.crt' #PATH sertifikat CA untuk SSL
 )
 
 def check_alerts():
