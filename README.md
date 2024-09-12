@@ -25,7 +25,8 @@ Langkah-langkah Instalasi dan Konfigurasi
     sudo sysctl -w vm.max_map_count=262144
     ```
 
-3. Jalankan Elasticsearch dengan Docker
+3. Download dan Jalankan Elasticsearch dengan Docker
+    - Untuk detail download image dan dokumentasi lebih lanjut, kunjungi [Panduan Instalasi ELK Stack](https://www.elastic.co/guide/en/elasticsearch/reference/current/docker.html).
     ```
     docker network create elastic
     docker run --name es01 --network elastic -p 9200:9200 -e "discovery.type=single-node" -it docker.elastic.co/elasticsearch/elasticsearch:8.14.3
@@ -33,7 +34,7 @@ Langkah-langkah Instalasi dan Konfigurasi
 
     Credential Elasticsearch:
     - Username: `elastic`
-    - Password: `your_new_password`
+    - Password: `your_password`
 
 4. Jalankan Kibana dengan Docker
     ```
@@ -41,7 +42,7 @@ Langkah-langkah Instalasi dan Konfigurasi
     ```
 
 5. Akses Kibana
-    - Buka browser dan akses Kibana melalui URL: (http://localhost:5601).
+    - Buka browser dan akses Kibana melalui URL: [http://localhost:5601](http://localhost:5601).
 
 6. Login ke Container Docker sebagai Root
     ```
@@ -76,7 +77,7 @@ Langkah-langkah Instalasi dan Konfigurasi
 Penggunaan Aplikasi
 
 1. Mengakses Kibana
-    - Buka browser dan akses Kibana melalui URL: `http://localhost:5601`.
+    - Buka browser dan akses Kibana melalui URL: [http://localhost:5601](http://localhost:5601).
 
 2. Konfigurasi Rules di Kibana
     - Atur rules sesuai kebutuhan Anda di Kibana.
@@ -94,3 +95,18 @@ Troubleshooting
     ```
     docker ps
     ```
+
+---
+
+Catatan Khusus:
+
+1. **Credential `basic_auth` pada `elasticsearchmodule.py`:**
+   - Gantilah dengan username dan password Anda sendiri yang sesuai dengan konfigurasi Elasticsearch Anda.
+
+2. **API Key Gemini pada `geminiapimodule.py`:**
+   - Gantilah dengan API key Anda sendiri. Pastikan API key tersebut valid dan memiliki izin yang diperlukan untuk mengakses Gemini API.
+
+3. **Path Sertifikat pada `elasticsearchmodule.py`:**
+   - Pastikan path ke sertifikat CA sesuai dengan lokasi sebenarnya dari sertifikat CA pada sistem Anda.
+
+---
